@@ -30,7 +30,6 @@ import {CartService} from './services/cart-service';
     miniCartcomponent,
     CartComponent,
     ShopComponent,
-    PageNotFoundComponent,
     FilterByPipe
 
   ],
