@@ -1,0 +1,88 @@
+<!-- Navigation -->
+<header class="nav-type-1">
+  <nav class="navbar navbar-static-top">
+    <div class="navigation" id="sticky-nav">
+      <div class="container relative">
+
+        <div class="row">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Mobile cart -->
+            <div class="nav-cart mobile-cart hidden-lg hidden-md">
+              <div class="nav-cart-outer">
+                <div class="nav-cart-inner">
+                  <a href="index.html#" class="nav-cart-icon">2</a>
+                </div>
+              </div>
+            </div>
+          </div> <!-- end navbar-header -->
+
+          <div class="header-wrap">
+            <div class="header-wrap-holder">
+              <!-- Logo -->
+              <div class="logo-container">
+                <div class="logo-wrap">
+                  <a routerLink="/">
+                    <h3>My Shop</h3>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cart -->
+              <MiniCart class="nav-cart-wrap hidden-sm hidden-xs"></MiniCart> <!-- end cart -->
+
+            </div>
+          </div> <!-- end header wrap -->
+
+          <div class="nav-wrap">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+
+              <ul class="nav navbar-nav">
+
+                <li id="mobile-search" class="hidden-lg hidden-md">
+                  <form method="get" class="mobile-search relative">
+                    <input type="search" class="form-control" placeholder="Search...">
+                    <button type="submit" class="search-button">
+                      <i class="icon icon_search"></i>
+                    </button>
+                  </form>
+                </li>
+
+                <li class="dropdown">
+                  <a [routerLink]="['/home']">Home</a>
+                </li>
+
+
+                <li class="dropdown">
+                  <a [routerLink]="['/shop','women']">Shop</a>
+                </li>
+
+                <li class="mobile-links">
+                  <ul>
+                    <li>
+                      <a href="index.html#">Login</a>
+                    </li>
+                    <li>
+                      <a href="index.html#">My Account</a>
+                    </li>
+                    <li>
+                      <a href="index.html#">My Wishlist</a>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul> <!-- end menu -->
+            </div> <!-- end collapse -->
+          </div> <!-- end col -->
+
+        </div> <!-- end row -->
+      </div> <!-- end container -->
+    </div> <!-- end navigation -->
+  </nav> <!-- end navbar -->
+</header> <!-- end navigation -->

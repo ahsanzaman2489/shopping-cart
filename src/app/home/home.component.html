@@ -1,0 +1,61 @@
+<main class="content-wrapper oh">
+
+
+  <!-- New Arrivals -->
+  <section class="section-wrap new-arrivals pb-40">
+    <div class="container">
+
+      <div class="row heading-row">
+        <div class="col-md-12 text-center">
+          <h2 class="heading uppercase">
+            <small>Women</small>
+          </h2>
+        </div>
+      </div>
+
+      <div class="row row-10">
+        <productlisting *ngFor="let product of data | filterPipe : 1" [item]='product' class='col-md-3 col-xs-6'></productlisting>
+      </div> <!-- end row -->
+    </div>
+  </section> <!-- end new arrivals -->
+
+  <!-- Newsletter -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="newsletter-box">
+          <h5 class="uppercase">Subscribe to Receive Our Updates</h5>
+          <form>
+            <input type="email" class="newsletter-input" placeholder="Your email">
+            <input type="submit" class="newsletter-submit btn btn-md btn-dark" value="subscribe">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Best Sellers -->
+  <section class="section-wrap pb-0">
+    <div class="container">
+
+      <div class="row heading-row">
+        <div class="col-md-12 text-center">
+          <h2 class="heading uppercase">
+            <small>Men</small>
+          </h2>
+        </div>
+      </div>
+
+      <div class="row row-10">
+
+        <productlisting *ngFor="let product of data | filterPipe : 2" [item]='product' class='col-md-3 col-xs-6'></productlisting>
+
+      </div> <!-- end row -->
+    </div>
+  </section> <!-- end best sellers -->
+
+
+
+</main> <!-- end main container -->
+
+

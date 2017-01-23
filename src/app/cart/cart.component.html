@@ -1,0 +1,157 @@
+<main class="content-wrapper oh">
+
+  <!-- Page Title -->
+  <section class="page-title text-center">
+    <div class="container relative clearfix">
+      <div class="title-holder">
+        <div class="title-text">
+          <h1 class="uppercase" *ngIf="items.products.length != 0">Shopping Cart</h1>
+          <h1 class="uppercase" *ngIf="items.products.length == 0">Shopping Cart is Empty Please visit
+            <a [routerLink]="['/shop','women']" style="color: #009df9;">shop</a></h1>
+        </div>
+      </div>
+    </div>
+  </section> <!-- end page title -->
+
+  <!-- Cart -->
+  <section class="section-wrap shopping-cart pt-0" *ngIf="items.products.length > 0">
+    <div class="container relative">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="table-wrap mb-30">
+            <table class="shop_table cart table">
+              <thead>
+              <tr>
+                <th class="product-name" colspan="2">Product</th>
+                <th class="product-price">Price</th>
+                <th class="product-quantity">Quantity</th>
+                <th class="product-subtotal">Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="cart_item" *ngFor="let item of items.products">
+                <td class="product-thumbnail">
+                  <a href="shop-cart.html#">
+                    <img src="{{item.image}}" alt="">
+                  </a>
+                </td>
+                <td class="product-name">
+                  <a href="shop-cart.html#">{{item.brand_name}}</a>
+
+                </td>
+                <td class="product-price">
+                  <span class="amount">{{(item.sale == null) ? item.price : item.sale | currency:'USD':'$'}}</span>
+                </td>
+                <td class="product-quantity">
+                  <span class="quantity buttons_added">
+                  <span class="minus text-center" (click)="cart.downQuantity(item)">-</span>
+                  <input type="number" step="1" min="0" value="{{item.qty}}" title="Qty" class="input-text qty text"
+                         disabled/>
+                  <span class="plus text-center" (click)="cart.upQuantity(item)">+</span>
+                  </span>
+                </td>
+                <td class="product-subtotal">
+                  <span
+                    class="amount">{{item.qty * (item.sale == null ? item.price : item.sale)  | currency:'USD':'$'}}</span>
+                </td>
+                <td class="product-remove">
+                  <a (click)="cart.delete(item)" class="remove" title="Remove this item">
+                    <i class="fa fa-close"></i>
+                  </a>
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+
+
+          </div>
+
+          <div class="row mb-50">
+            <div class="col-md-5 col-sm-12">
+            </div>
+            <div class="col-md-7">
+              <div class="actions right">
+                <a [routerLink]="['/shop','women']">
+                  <div class="btn btn-dark">Update Cart</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end col -->
+      </div> <!-- end row -->
+
+      <div class="row">
+        <div class="col-md-6 shipping-calculator-form">
+          <h2 class="heading relative heading-small uppercase mb-30">Calculate Shipping</h2>
+          <p class="form-row form-row-wide">
+            <select name="calc_shipping_country" (change)="cart.ShippingCaculator($event)" class="country_to_state"
+                    rel="calc_shipping_state">
+              <option value="">Select a country…</option>
+              <option value="0">Afghanistan</option>
+              <option value="5">Australia</option>
+              <option value="10">Canada</option>
+              <option value="15">England</option>
+              <option value="20">India</option>
+              <option value="25">Pakistan</option>
+              <option value="30">USA</option>
+              <option value="35">UAE</option>
+            </select>
+          </p>
+
+          <div class="row row-20">
+            <div class="col-sm-6">
+              <p class="form-row form-row-wide">
+                <input type="text" class="input-text" value placeholder="State / county" name="calc_shipping_state"
+                       id="calc_shipping_state">
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <p class="form-row form-row-wide">
+                <input type="text" class="input-text" value placeholder="Postcode" name="calc_shipping_postcode"
+                       id="calc_shipping_postcode">
+              </p>
+            </div>
+          </div>
+        </div> <!-- end col shipping calculator -->
+
+        <div class="col-md-4 col-md-offset-2">
+          <div class="cart_totals">
+            <h2 class="heading relative heading-small uppercase mb-30">Cart Totals</h2>
+
+            <table class="table shop_table">
+              <tbody>
+              <tr class="cart-subtotal">
+                <th>Cart Subtotal</th>
+                <td>
+                  <span class="amount">{{items.total | currency:'USD':'$'}}</span>
+                </td>
+              </tr>
+              <tr class="shipping">
+                <th>Shipping</th>
+                <td>
+                  <span>{{items.shipping.amount == 0 ? 'Free Shipping':items.shipping.amount | currency:'USD':'$'}}</span>
+                </td>
+              </tr>
+              <tr class="order-total">
+                <th><strong>Order Total</strong></th>
+                <td>
+                  <strong><span class="amount">{{items.total + items.shipping.amount | currency:'USD':'$'}}</span></strong>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div> <!-- end col cart totals -->
+
+      </div> <!-- end row -->
+
+
+    </div> <!-- end container -->
+  </section> <!-- end cart -->
+</main> <!-- end main container -->
+
+
